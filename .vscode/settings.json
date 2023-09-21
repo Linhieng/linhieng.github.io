@@ -1,8 +1,9 @@
 {
-    "[json][jsonc][javascript]": {
+    "[json][jsonc][javascript][typescript][svelte]": {
         "editor.tabSize": 4,
         "editor.detectIndentation": false,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
     },
-    "cSpell.words": ["commitlint"]
+    "cSpell.words": ["commitlint", "LINHIENG", "precompress"]
 }
