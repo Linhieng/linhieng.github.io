@@ -15,7 +15,7 @@
         "prepare": "husky install"
     },
     "lint-staged": {
-        "*.{json,jsonc,js,mjs,cjs,ts}": "prettier -w"
+        "*.{yml,json,jsonc,js,mjs,cjs,ts}": "prettier -w"
     },
     "author": "Linhieng",
     "license": "MIT",
