@@ -1,4 +1,14 @@
 {
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": true,
+    "explorer.fileNesting.patterns": {
+        "README.md": "*.md, LICENSE",
+        "vite.config.ts": "svelte.config.js, playwright.config.ts, tsconfig.json",
+        ".eslintrc.cjs": ".eslintignore, .prettierignore, .prettierrc, commitlint.config.js, .markdownlint.jsonc, .gitattributes, .gitignore"
+    },
+
+    "svelte.enable-ts-plugin": true,
+
     "[json][jsonc][javascript][typescript][svelte]": {
         "editor.tabSize": 4,
         "editor.detectIndentation": false,
