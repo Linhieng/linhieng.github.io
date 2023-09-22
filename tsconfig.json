@@ -11,8 +11,8 @@
         "strict": true,
         "baseUrl": "./src",
         "paths": {
-            "$components": ["Components"],
-            "$components/*": ["Components/*"]
+            "$components": ["components"],
+            "$components/*": ["components/*"]
         }
     }
     // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
