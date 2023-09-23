@@ -2,14 +2,12 @@
     import type { TransitionConfig } from 'svelte/transition'
 
     let show = false
-    let time = 170
-    requestAnimationFrame(function second3() {
-        if (time++ === 180) {
-            time = 0
+    const every3secondtoggle = (time: number) =>
+        setTimeout(() => {
             show = !show
-        }
-        requestAnimationFrame(second3)
-    })
+            every3secondtoggle(3000)
+        }, time)
+    every3secondtoggle(100)
 
     function typewriter(node: HTMLElement, { speed = 1 }): TransitionConfig {
         const valid =
