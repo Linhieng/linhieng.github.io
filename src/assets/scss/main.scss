@@ -1,0 +1,12 @@
+@import './reset.scss';
+@import './class.scss';
+
+body {
+    min-height: 100vh;
+
+    #app {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
