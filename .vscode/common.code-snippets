@@ -1,0 +1,25 @@
+{
+    "vue components template": {
+        "scope": "vue",
+        "prefix": ["!", "tem"],
+        "body": [
+            "<template>",
+            "    ${1:$TM_FILENAME_BASE}",
+            "</template>",
+            "",
+            "<script setup lang=\"ts\">",
+            "$0",
+            "</script>",
+            "",
+            "<style scoped lang=\"scss\">",
+            "$2",
+            "</style>"
+        ],
+        "description": "Log output to console"
+    },
+    "comment": {
+        "scope": "scss,typescript",
+        "prefix": ["//"],
+        "body": ["// $0 ------------------------------------"],
+    }
+}
