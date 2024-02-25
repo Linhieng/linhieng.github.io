@@ -2,7 +2,7 @@
 # layout has been set to post by default
 title: 终端命令提示符配置
 category: CLI
-tags: [ternimal, style, shell]
+tags: [ternimal, style, shell, prompt]
 ---
 
 ## window
