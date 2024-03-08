@@ -14,15 +14,15 @@ TODO:
 
 ## 🍕 涉及到的概念
 
-*   事件循环 (`Event Loop`)
-*   `宏任务` (macrotask)
-*   `宏任务队列` (macrotask queue)。在 [WHATWG specification] 中被简单地称为 **task queue**。<cite><sup>[1]</sup></cite>
-*   `微任务` (microtask)
-*   `微任务队列` (microtask queue)
-*   `执行栈`, 或调用栈 (Call Stack)
-*   `任务队列` (Task Queue, Event Queue), 我这里将 `宏任务队列` 和 `微任务队列` 统称为 `任务队列`
-*   异步编程 (asynchronous programming)
-*   单线程 (single-thread)
+- 事件循环 (`Event Loop`)
+- `宏任务` (macrotask)
+- `宏任务队列` (macrotask queue)。在 [WHATWG specification] 中被简单地称为 **task queue**。<cite><sup>[1]</sup></cite>
+- `微任务` (microtask)
+- `微任务队列` (microtask queue)
+- `执行栈`, 或调用栈 (Call Stack)
+- `任务队列` (Task Queue, Event Queue), 我这里将 `宏任务队列` 和 `微任务队列` 统称为 `任务队列`
+- 异步编程 (asynchronous programming)
+- 单线程 (single-thread)
 
 ## 🍕 通过一段代码, 来简单认识 Event Loop
 
@@ -79,19 +79,19 @@ _Event Loop_
 
 下面给出已知的 `宏任务` 和 `微任务`
 
-*   宏任务
-    *   `setTimeout`
-    *   `setInterval`
-    *   `setImmediate` (Node 独有)
-    *   `requestAnimationFrame` (浏览器独有)
-    *   I/O
-    *   UI rendering (浏览器独有)
-*   微任务
-    *   `process.nextTick` (Node 独有)
-    *   Promises (准确的说是 Promise.then() 中 then 的回调函数, 而不是 new promise(callback) 携带的回调函数)
-    *   `Object.observe`
-    *   `MutationObserver`
-    *   `queueMicrotask`
+- 宏任务
+    - `setTimeout`
+    - `setInterval`
+    - `setImmediate` (Node 独有)
+    - `requestAnimationFrame` (浏览器独有)
+    - I/O
+    - UI rendering (浏览器独有)
+- 微任务
+    - `process.nextTick` (Node 独有)
+    - Promises (准确的说是 Promise.then() 中 then 的回调函数, 而不是 new promise(callback) 携带的回调函数)
+    - `Object.observe`
+    - `MutationObserver`
+    - `queueMicrotask`
 
 ## 🍕 通过一段代码来理解宏任务和微任务
 
@@ -113,10 +113,10 @@ setTimeout(() => { // l-2
 
 先讨论真正有用的, 也就是Node11之后版本和浏览器的版本, 下面以浏览器内核进行解释:
 
-*   `l-数字` 代表某行代码
-*   `APIs` 是浏览器中的一个机制, 详细的结果不清楚, 只知道一些异步API的处理, 都是由它进行处理的, 当异步函数执行完毕时, 也是由它负责发送给 `任务队列`。<cite><sup>[7]</sup></cite>
-*   `宏任务队列`, 由宏任务组成的队列, 宏任务队列分为 **计时器队列** (Expired Timer Callbacks, 即到期的setTimeout/setInterval)、**IO事件队列**(I/O Events)、**即时队列** (Immediate Queue, 即 setImmediate)、**关闭事件处理程序队列** (close Handlers)。<cite><sup>[8] [9]</sup></cite>
-*   `微任务队列`, 由微任务组成的队列
+- `l-数字` 代表某行代码
+- `APIs` 是浏览器中的一个机制, 详细的结果不清楚, 只知道一些异步API的处理, 都是由它进行处理的, 当异步函数执行完毕时, 也是由它负责发送给 `任务队列`。<cite><sup>[7]</sup></cite>
+- `宏任务队列`, 由宏任务组成的队列, 宏任务队列分为 **计时器队列** (Expired Timer Callbacks, 即到期的setTimeout/setInterval)、**IO事件队列**(I/O Events)、**即时队列** (Immediate Queue, 即 setImmediate)、**关闭事件处理程序队列** (close Handlers)。<cite><sup>[8] [9]</sup></cite>
+- `微任务队列`, 由微任务组成的队列
 
 1.  首先, 浏览器自上而下的执行(执行的过程中 `执行栈` 中进行), 先执行 `l-1`, 发现是 `setTimeout`, 于是将它的参数(callback,delay)发送给 `APIs`
 2.  然后继续识别 `l-2`, 发现又是 `setTimeout`, 于是继续将它的参数发送给 `APIs`
@@ -144,15 +144,18 @@ setTimeout(() => { // l-2
 
 下面来谈一点 "过时" 的东西, 前面的分析, 在现在这个时间点(22.12.15)都是对的。而在之前, 也就是 NodeJS11版本之前(不包括11), node 和 浏览器的 `Event Loop` 机制是不一样的, 最大的区别就在于 `宏任务` 和 `微任务`。前面已经说了，每一个 `宏任务` 执行时, 都要确保 `微任务队列` 为空, 这是新版本的标准。在此之前的版本有一点点不同，之前的版本所要求的的是 **同一类宏任务队列** 执行之前, 要确保 **微任务队列为空**。这个差异导致的结果就是，当存在两个 `setTimeout` 时, 会先执行完这两个宏任务, 然后再去执行微任务, 所以前面的代码, 用 node11 之前的版本运行时, 会是不一样的结果
 
-![node 10 vs 16.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0570f8d262aa4e0a93b8ed5dbe1c1af8~tplv-k3u1fbpfcp-watermark.image?)
+![](https://l-oss-bucket-sz.oss-cn-shenzhen.aliyuncs.com/t/tmp1.png)
+_node 10 vs 16_
 
 有关 nodejs 的 `Event Loop` 具体的流程图, 可以看下面这张图 <cite><sup>[10]</sup></cite>
 
-![11版本之前的流程图](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e8edee4043f4bb4b9d6bf0e5340edec~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1400\&h=875\&s=50760\&e=webp\&a=1\&b=c7ccee)
+![](https://l-oss-bucket-sz.oss-cn-shenzhen.aliyuncs.com/t/tmp2.png)
+_11版本之前的流程图_
 
 在这个过程中, 还发现了一个 ~~让人困惑~~ 有意思的现象, 那就是当我们将两个 `setTimeout` 的 `delay` 设置为 `0` 秒时, 输出的情况是不确定的, 有时候会出现 `微任务1` 在 `宏任务2` 之前输出, 如图所示
 
-![nodejs10 different output.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/979e9905c8234c51b303a566d4195c3c~tplv-k3u1fbpfcp-watermark.image?)
+![](https://l-oss-bucket-sz.oss-cn-shenzhen.aliyuncs.com/t/tmp3.png)
+_nodejs10 different output_
 
 下面我想试着解释这么一种现象。
 
@@ -199,10 +202,10 @@ setTimeout(() => { // l-2
 
 下面我再用别人给出的 nodejs11版本之前的 `Event Loop` 图, 来解释一下:
 
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5566f8e77aa44e33b182f55ddaef15ac~tplv-k3u1fbpfcp-watermark.image?)
+![](https://l-oss-bucket-sz.oss-cn-shenzhen.aliyuncs.com/t/tmp4.png)
 _关键的时间点1, setTimeout1 开始执行, 但 setTimeout2 还没有进入宏任务队列中_
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/369d56e8c6b945918102c3e77a32de5b~tplv-k3u1fbpfcp-watermark.image?)
+![](https://l-oss-bucket-sz.oss-cn-shenzhen.aliyuncs.com/t/tmp5.png)
 _关键时间点2, 只要 微任务1 能够在 s2 还未执行时进入到队列中, 那么它就有很大概率先于 s2 执行_
 
 好了, 这一部分, 仅仅只是感觉有意思的, 所以想着纪录一下, 初次学习(说的就是我)不要 **只想不做**, 不然容易误入歧途, 最好休息一下, 放空放空大脑, 或者去看看大佬的文章, 再回头来思考一下。
