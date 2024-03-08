@@ -7,7 +7,7 @@ tags: [css, basic, justify, align]
 
 ## 样式介绍
 
-直接通过网站学习每个样式的作用：[lim-w-justify-align | linhieng](https://blog.linhieng.com/lim-w-justify-align/)
+直接通过网站学习每个样式的作用：[lim-w-justify-align &#124; linhieng](https://blog.linhieng.com/lim-w-justify-align/)
 
 表格速查：
 
