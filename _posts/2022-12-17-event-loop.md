@@ -160,3 +160,5 @@ setTimeout(() => {
 - [Understanding the Event Loop, Callbacks, Promises, and Async/Await in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-the-event-loop-callbacks-promises-and-async-await-in-javascript)
 - [event-loop](https://zh.javascript.info/event-loop)
 - [带你了解事件循环机制(Event Loop)](https://blog.csdn.net/weixin_52092151/article/details/119788483)
+- [nodejs event loop](https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick)
+- [浏览器 Event Loop 底层原理](https://libevent.org/)
