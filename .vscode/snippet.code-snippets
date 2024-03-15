@@ -1,0 +1,16 @@
+{
+    "header info for article": {
+        "scope": "markdown",
+        "prefix": ["tem"],
+        "body": [
+            "---",
+            "# layout has been set to post by default",
+            "title: ${1:文章显示标题}",
+            "category: ${2:js}",
+            "tags: [${3:js, basic}]",
+            "---",
+            "$4",
+        ],
+        "description": "Log output to console"
+    }
+}
