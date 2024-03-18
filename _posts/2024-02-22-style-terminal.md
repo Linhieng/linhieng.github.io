@@ -5,6 +5,10 @@ category: CLI
 tags: [ternimal, style, shell, prompt]
 ---
 
+TODO: 下面代码中 powershell 的代码大多数已经没用了（写的太差），需要更改。
+
+我目前正在使用的样式，请在前往 gist 中查看：[current--Microsoft.PowerShell_profile.ps1](https://gist.github.com/Linhieng/70f9cff681d4c597dab8afa4a2053fb1)
+
 ## window
 
 ### 配置 powershell 命令提示符
@@ -215,6 +219,7 @@ function prompt {
 
     return $prompt
 }
+
 
 ```
 
