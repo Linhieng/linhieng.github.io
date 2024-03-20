@@ -4,7 +4,37 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-我是 linhieng，欢迎来到我的个人博客。
+
+<img src="./hello.svg" alt="">
+
+<input type="radio" name="lang" id="en" checked />
+<input type="radio" name="lang" id="zh" />
+<div align="center" id="info">
+    <label id="en-label" for="en">English</label>
+    <label id="zh-label" for="zh">中文</label>
+    <p id="en-info"> Hello! Welcome to my blog.</p>
+    <p id="zh-info"> 哈喽！欢迎来到我的个人博客。</p>
+</div>
+
+<style>
+  #en,#zh {opacity: 0; pointer-events: none;}
+  #info {
+      display: grid;
+      grid-template-areas:
+          "en zh"
+          "info info";
+      grid-template-columns: max-content 1fr;
+      column-gap: 20px;
+      row-gap: 10px;
+      justify-items: start;
+  }
+  #en-label {grid-area: en; cursor: pointer;}
+  #zh-label {grid-area: zh; cursor: pointer;}
+  #info p { grid-area:info; display: none;     text-align: start;}
+  #en:checked ~ #info #en-info {display: block;}
+  #zh:checked ~ #info #zh-info {display: block;}
+</style>
+
 
 专业技能：
 
@@ -75,8 +105,9 @@ order: 4
   - svelte 学过
   - jQuery 学过
   - 微信小程序 学过
-- 待学习的技术（优先级高）
+- 学习中
   - [Rust]
+- 待学习的技术（优先级高）
   - [Flutter]
   - [Electron]
   - [Qwik]
