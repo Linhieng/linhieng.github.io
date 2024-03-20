@@ -4,19 +4,16 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-
-<img src="./hello.svg" alt="">
-
-<input type="radio" name="lang" id="en" checked />
-<input type="radio" name="lang" id="zh" />
-<div align="center" id="info">
+<div id="test-container">
+  <input type="radio" name="lang" id="en" checked />
+  <input type="radio" name="lang" id="zh" />
+  <div align="center" id="info">
     <label id="en-label" for="en">English</label>
     <label id="zh-label" for="zh">中文</label>
     <p id="en-info"> Hello! Welcome to my blog.</p>
     <p id="zh-info"> 哈喽！欢迎来到我的个人博客。</p>
-</div>
-
-<style>
+  </div>
+  <style>
   #en,#zh {opacity: 0; pointer-events: none;}
   #info {
       display: grid;
@@ -33,8 +30,8 @@ order: 4
   #info p { grid-area:info; display: none;     text-align: start;}
   #en:checked ~ #info #en-info {display: block;}
   #zh:checked ~ #info #zh-info {display: block;}
-</style>
-
+  </style>
+</div>
 
 专业技能：
 
